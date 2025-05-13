@@ -12,7 +12,7 @@ Uma aplicação ToDo List, onde usuários podem criar, editar, listar e atualiza
 
 ## 🧠 Modelo Conceitual
 
-![Modelo Conceitual](./Image/conceitual_model_ToDoList.png)
+![Modelo Conceitual](Image/conceitual_model_ToDoList.png)
 
   > O projeto segue uma estrutura relacional com três entidades principais: `Users`, `Tasks` e `Status`.
 
