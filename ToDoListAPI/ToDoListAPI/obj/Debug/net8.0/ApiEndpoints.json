@@ -8,6 +8,11 @@
     "Order": 0,
     "Parameters": [
       {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
         "Name": "user",
         "Type": "ToDoListAPI.Entities.Models.User",
         "IsRequired": true
@@ -17,12 +22,112 @@
   },
   {
     "ContainingType": "ToDoListAPI.Controllers.UserController",
-    "Method": "GetUser",
-    "RelativePath": "User/GetUser",
+    "Method": "DeleteUser",
+    "RelativePath": "User/DeleteUser/{userId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ToDoListAPI.Controllers.UserController",
+    "Method": "GetUserByEmail",
+    "RelativePath": "User/GetUserByEmail/{email}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ToDoListAPI.Controllers.UserController",
+    "Method": "GetUserById",
+    "RelativePath": "User/GetUserById/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ToDoListAPI.Controllers.UserController",
+    "Method": "GetUsers",
+    "RelativePath": "User/GetUsers",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ToDoListAPI.Controllers.UserController",
+    "Method": "GetTeste",
+    "RelativePath": "User/GetUserTeste",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ToDoListAPI.Controllers.UserController",
+    "Method": "IsEmailExists",
+    "RelativePath": "User/IsEmailExists/{email}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ToDoListAPI.Controllers.UserController",
+    "Method": "UpdateUser",
+    "RelativePath": "User/UpdateUser",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "ToDoListAPI.Entities.Models.User",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   }
 ]

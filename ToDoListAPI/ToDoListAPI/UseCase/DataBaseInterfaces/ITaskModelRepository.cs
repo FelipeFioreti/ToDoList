@@ -4,10 +4,10 @@ namespace ToDoListAPI.UseCase.DataBaseInterfaces
 {
     public interface ITaskModelRepository
     {
-        TaskModel GetTaskModelById(int id);
-        IEnumerable<TaskModel> GetTaskModel();
-        void AddTaskModel(TaskModel status);
-        void UpdateTaskModel(TaskModel status);
-        void DeleteTaskModel(int id);
+        Task<TaskModel> GetTaskModelById(int id);
+        Task<IEnumerable<TaskModel>> GetTasksModel();
+        Task AddTaskModel(TaskModel status);
+        Task UpdateTaskModel(TaskModel status);
+        Task DeleteTaskModel(int id);
     }
 }

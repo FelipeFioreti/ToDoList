@@ -1,33 +1,73 @@
-﻿using ToDoListAPI.Entities.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using ToDoListAPI.Entities.Models;
 using ToDoListAPI.UseCase.DataBaseInterfaces;
 
 namespace ToDoListAPI.DataBase
 {
     public class StatusRepository : IStatusRepository
     {
-        public void AddStatus(Status status)
+        private readonly ApplicationContext _context;
+        public StatusRepository(ApplicationContext _context)
         {
-            throw new NotImplementedException();
+            this._context = _context;
         }
 
-        public void DeleteStatus(int id)
+        public async Task<Status> AddStatus(Status status)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _context.Status.AddAsync(status);
+                await _context.SaveChangesAsync();
+                return status;
+            }catch(Exception ex)
+            {
+                return null;
+            }
+           
         }
 
-        public IEnumerable<Status> GetStatus()
+        public async Task<bool> DeleteStatus(int statusId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var status = await _context.Status.FirstOrDefaultAsync(x => x.StatusId == statusId);
+
+                if (status == null)
+                    return false;
+
+                _context.Status.Remove(status);
+                await _context.SaveChangesAsync();
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
-        public Status GetStatusById(int id)
+        public async Task<IEnumerable<Status>> GetStatus()
         {
-            throw new NotImplementedException();
+            return await _context.Status.ToListAsync();
         }
 
-        public void UpdateStatus(Status status)
+        public Task<Status> GetStatusById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Status.FirstOrDefaultAsync(x => x.StatusId == id);
+        }
+
+        public async Task<Status> UpdateStatus(Status status)
+        {
+            try
+            {
+                _context.Entry(status).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+                return status;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }       
         }
     }
 }

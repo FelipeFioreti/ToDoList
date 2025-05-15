@@ -3,6 +3,6 @@
     public class Status
     {
         public int StatusId { get; set; }
-        public string Name { get; set; } = string.Empty;
+        public string StatusName { get; set; } = string.Empty;
     }
 }

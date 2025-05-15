@@ -5,12 +5,12 @@ namespace ToDoListAPI.Entities.Models
     public class TaskModel
     {
         public int TaskId { get; set; }
-        public string Title { get; set; } = string.Empty;
-        public string Content { get; set; } = string.Empty;
+        public string TaskTitle { get; set; } = string.Empty;
+        public string TaskContent { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; }
-        [ForeignKey("User")]
+        [ForeignKey("USERS")]
         public int UserId { get; set; }
-        [ForeignKey("Status")]
+        [ForeignKey("STATUS")]
         public int StatusId { get; set; }
     }
 }

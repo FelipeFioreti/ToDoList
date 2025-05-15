@@ -4,12 +4,12 @@ namespace ToDoListAPI.UseCase.DataBaseInterfaces
 {
     public interface IUserRepository
     {
-        User GetUserById(int id);
+        Task<User> GetUserById(int id);
         Task<IEnumerable<User>> GetUsers();
-        void AddUser(User user);
-        void UpdateUser(User user);
-        void DeleteUser(int id);
-        User GetUserByEmail(string email);
-        bool IsEmailExists(string email);
+        Task<User> AddUser(User user);
+        Task<User> UpdateUser(User user);
+        Task<bool> DeleteUser(int id);
+        Task<User> GetUserByEmail(string email);
+        Task<bool> IsEmailExists(string email);
     }
 }

@@ -4,10 +4,10 @@ namespace ToDoListAPI.UseCase.DataBaseInterfaces
 {
     public interface IStatusRepository
     {
-        Status GetStatusById(int id);
-        IEnumerable<Status> GetStatus();
-        void AddStatus(Status status);
-        void UpdateStatus(Status status);
-        void DeleteStatus(int id);
+        Task<Status> GetStatusById(int id);
+        Task<IEnumerable<Status>> GetStatus();
+        Task<Status> AddStatus(Status status);
+        Task<Status> UpdateStatus(Status status);
+        Task<bool> DeleteStatus(int id);
     }
 }

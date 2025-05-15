@@ -1,52 +1,51 @@
-﻿using ToDoListAPI.Entities.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using ToDoListAPI.Entities.Models;
 using ToDoListAPI.UseCase.DataBaseInterfaces;
 
 namespace ToDoListAPI.DataBase
 {
     public class UserRepository : IUserRepository
     {
-        private readonly ApplicationContext context;
+        private readonly ApplicationContext _context;
 
         public UserRepository(ApplicationContext context)
         {
-            this.context = context;
+            this._context = context;
         }
 
-        public void AddUser(User user)
+        public async Task<User> AddUser(User user)
         {
-            context.Users.Add(user);
-            context.SaveChanges();
+            try
+            {
+                await _context.Users.AddAsync(user);
+                await _context.SaveChangesAsync();
+
+                return user;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
-        public void DeleteUser(int userId)
+        public async Task<User> GetUserByEmail(string email)
         {
-            var user = context.Users.Find(userId.ToString());
-
-            if (user == null)
-                return;
-
-            context.Users.Remove(user);
-            context.SaveChanges();
+            return await _context.Users.Where(x => x.Email == email).FirstOrDefaultAsync();
         }
 
-        public User GetUserByEmail(string email)
+        public async Task<User> GetUserById(int userId)
         {
-            return context.Users.Where(x => x.Email == email).FirstOrDefault();
-        }
-
-        public User GetUserById(int userId)
-        {
-            return context.Users.Find(userId);
+            return await _context.Users.FindAsync(userId);
         }
 
         public async Task<IEnumerable<User>> GetUsers()
         {
-            return context.Users.ToList();
+            return await _context.Users.ToListAsync();
         }
 
-        public bool IsEmailExists(string email)
+        public async Task<bool> IsEmailExists(string email)
         {
-            if (context.Users.Where(x => x.Email == email).FirstOrDefault() != null)
+            if (await _context.Users.Where(x => x.Email == email).FirstOrDefaultAsync() != null)
             {
                 return true;
             }
@@ -56,18 +55,38 @@ namespace ToDoListAPI.DataBase
             }
         }
 
-        public void UpdateUser(User userModel)
+        public async Task<bool> DeleteUser(int userId)
         {
-            var user = context.Users.Find(userModel.UserId);
-
-            if (user != null)
+            try
             {
-                user.Name = userModel.Name;
-                user.Email = userModel.Email;
-                user.Password = userModel.Password;
-                user.UpdatedAt = DateTime.Now;
-                context.Users.Update(user);
-                context.SaveChanges();
+
+                var user = await _context.Users.FirstOrDefaultAsync(x => x.UserId == userId);
+
+                if (user == null)
+                    return false;
+
+                _context.Users.Remove(user);
+                await _context.SaveChangesAsync();
+                return true;
+
+            }catch(Exception ex)
+            {
+                return false;
+            }
+
+        }
+
+        public async Task<User> UpdateUser(User userModel)
+        {
+            try
+            {
+                _context.Entry(userModel).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+                return userModel;
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
         }
     }

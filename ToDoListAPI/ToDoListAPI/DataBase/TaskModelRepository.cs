@@ -1,33 +1,54 @@
-﻿using ToDoListAPI.Entities.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using ToDoListAPI.Entities.Models;
 using ToDoListAPI.UseCase.DataBaseInterfaces;
 
 namespace ToDoListAPI.DataBase
 {
     public class TaskModelRepository : ITaskModelRepository
     {
-        public void AddTaskModel(TaskModel status)
+        private readonly ApplicationContext context;
+
+        public TaskModelRepository(ApplicationContext context)
         {
-            throw new NotImplementedException();
+               this.context = context;
+        }
+        public async Task AddTaskModel(TaskModel task)
+        {
+            await context.Tasks.AddAsync(task);
+            await context.SaveChangesAsync();
         }
 
-        public void DeleteTaskModel(int id)
+        public async Task DeleteTaskModel(int taskId)
         {
-            throw new NotImplementedException();
+            var task = await context.Tasks.FirstOrDefaultAsync(x => x.TaskId == taskId); 
+            
+            if (task == null)
+                return;
+
+            context.Tasks.Remove(task);
+            await context.SaveChangesAsync();
         }
 
-        public IEnumerable<TaskModel> GetTaskModel()
+        public async Task<IEnumerable<TaskModel>> GetTasksModel()
         {
-            throw new NotImplementedException();
+            return await context.Tasks.ToListAsync();
         }
 
-        public TaskModel GetTaskModelById(int id)
+
+        public async Task<TaskModel> GetTaskModelById(int taskId)
         {
-            throw new NotImplementedException();
+            return await context.Tasks.FirstOrDefaultAsync(x => x.TaskId == taskId);
         }
 
-        public void UpdateTaskModel(TaskModel status)
+        public async Task UpdateTaskModel(TaskModel status)
         {
-            throw new NotImplementedException();
+            var task = await context.Tasks.FirstOrDefaultAsync(x => x.TaskId == status.TaskId);
+            
+            if (task == null)
+                return;
+
+            context.Update(task);
+            await context.SaveChangesAsync();
         }
     }
 }
