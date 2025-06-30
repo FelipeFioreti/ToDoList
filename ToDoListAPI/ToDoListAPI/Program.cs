@@ -1,16 +1,19 @@
 using Microsoft.EntityFrameworkCore;
 using ToDoListAPI;
-using ToDoListAPI.DataBase;
-using ToDoListAPI.UseCase.DataBaseInterfaces;
+using ToDoListAPI.Application.UseCases;
+using ToDoListAPI.Domain.DataBaseInterfaces;
+using ToDoListAPI.Infrastructure.Context;
+using ToDoListAPI.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
 // Add DbContext
-builder.Services.AddDbContext<ApplicationContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
