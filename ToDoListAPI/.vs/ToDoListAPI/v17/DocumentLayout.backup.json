@@ -1,22 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Felipe\\Estudos\\Projetos Visual Studio\\ToDoList\\ToDoListAPI\\",
+  "WorkspaceRootPath": "D:\\Usuarios\\felip\\Documents\\projetos\\ToDoListProjeto\\ToDoListAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{54776D5C-E29C-45AA-8A22-C7C5C8DAC8BA}|ToDoListAPI\\ToDoListAPI.csproj|d:\\felipe\\estudos\\projetos visual studio\\todolist\\todolistapi\\todolistapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54776D5C-E29C-45AA-8A22-C7C5C8DAC8BA}|ToDoListAPI\\ToDoListAPI.csproj|solutionrelative:todolistapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{54776D5C-E29C-45AA-8A22-C7C5C8DAC8BA}|ToDoListAPI\\ToDoListAPI.csproj|d:\\usuarios\\felip\\documents\\projetos\\todolistprojeto\\todolistapi\\todolistapi\\usecase\\databaseinterfaces\\istatusrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54776D5C-E29C-45AA-8A22-C7C5C8DAC8BA}|ToDoListAPI\\ToDoListAPI.csproj|solutionrelative:todolistapi\\usecase\\databaseinterfaces\\istatusrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{54776D5C-E29C-45AA-8A22-C7C5C8DAC8BA}|ToDoListAPI\\ToDoListAPI.csproj|d:\\felipe\\estudos\\projetos visual studio\\todolist\\todolistapi\\todolistapi\\database\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54776D5C-E29C-45AA-8A22-C7C5C8DAC8BA}|ToDoListAPI\\ToDoListAPI.csproj|solutionrelative:todolistapi\\database\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54776D5C-E29C-45AA-8A22-C7C5C8DAC8BA}|ToDoListAPI\\ToDoListAPI.csproj|d:\\felipe\\estudos\\projetos visual studio\\todolist\\todolistapi\\todolistapi\\database\\statusrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{54776D5C-E29C-45AA-8A22-C7C5C8DAC8BA}|ToDoListAPI\\ToDoListAPI.csproj|d:\\usuarios\\felip\\documents\\projetos\\todolistprojeto\\todolistapi\\todolistapi\\database\\statusrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{54776D5C-E29C-45AA-8A22-C7C5C8DAC8BA}|ToDoListAPI\\ToDoListAPI.csproj|solutionrelative:todolistapi\\database\\statusrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{54776D5C-E29C-45AA-8A22-C7C5C8DAC8BA}|ToDoListAPI\\ToDoListAPI.csproj|d:\\felipe\\estudos\\projetos visual studio\\todolist\\todolistapi\\todolistapi\\usecase\\databaseinterfaces\\istatusrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54776D5C-E29C-45AA-8A22-C7C5C8DAC8BA}|ToDoListAPI\\ToDoListAPI.csproj|solutionrelative:todolistapi\\usecase\\databaseinterfaces\\istatusrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{54776D5C-E29C-45AA-8A22-C7C5C8DAC8BA}|ToDoListAPI\\ToDoListAPI.csproj|d:\\usuarios\\felip\\documents\\projetos\\todolistprojeto\\todolistapi\\todolistapi\\controllers\\statuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54776D5C-E29C-45AA-8A22-C7C5C8DAC8BA}|ToDoListAPI\\ToDoListAPI.csproj|solutionrelative:todolistapi\\controllers\\statuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54776D5C-E29C-45AA-8A22-C7C5C8DAC8BA}|ToDoListAPI\\ToDoListAPI.csproj|d:\\usuarios\\felip\\documents\\projetos\\todolistprojeto\\todolistapi\\todolistapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54776D5C-E29C-45AA-8A22-C7C5C8DAC8BA}|ToDoListAPI\\ToDoListAPI.csproj|solutionrelative:todolistapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54776D5C-E29C-45AA-8A22-C7C5C8DAC8BA}|ToDoListAPI\\ToDoListAPI.csproj|d:\\usuarios\\felip\\documents\\projetos\\todolistprojeto\\todolistapi\\todolistapi\\database\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54776D5C-E29C-45AA-8A22-C7C5C8DAC8BA}|ToDoListAPI\\ToDoListAPI.csproj|solutionrelative:todolistapi\\database\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,54 +35,63 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "D:\\Felipe\\Estudos\\Projetos Visual Studio\\ToDoList\\ToDoListAPI\\ToDoListAPI\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "ToDoListAPI\\Controllers\\UserController.cs",
-              "ToolTip": "D:\\Felipe\\Estudos\\Projetos Visual Studio\\ToDoList\\ToDoListAPI\\ToDoListAPI\\Controllers\\UserController.cs",
-              "RelativeToolTip": "ToDoListAPI\\Controllers\\UserController.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAAACQAAAAQAAAAAAAAAA==",
+              "Title": "IStatusRepository.cs",
+              "DocumentMoniker": "D:\\Usuarios\\felip\\Documents\\projetos\\ToDoListProjeto\\ToDoListAPI\\ToDoListAPI\\UseCase\\DataBaseInterfaces\\IStatusRepository.cs",
+              "RelativeDocumentMoniker": "ToDoListAPI\\UseCase\\DataBaseInterfaces\\IStatusRepository.cs",
+              "ToolTip": "D:\\Usuarios\\felip\\Documents\\projetos\\ToDoListProjeto\\ToDoListAPI\\ToDoListAPI\\UseCase\\DataBaseInterfaces\\IStatusRepository.cs",
+              "RelativeToolTip": "ToDoListAPI\\UseCase\\DataBaseInterfaces\\IStatusRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-15T18:28:05.212Z",
+              "WhenOpened": "2025-05-15T20:24:07.94Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "IStatusRepository.cs",
-              "DocumentMoniker": "D:\\Felipe\\Estudos\\Projetos Visual Studio\\ToDoList\\ToDoListAPI\\ToDoListAPI\\UseCase\\DataBaseInterfaces\\IStatusRepository.cs",
-              "RelativeDocumentMoniker": "ToDoListAPI\\UseCase\\DataBaseInterfaces\\IStatusRepository.cs",
-              "ToolTip": "D:\\Felipe\\Estudos\\Projetos Visual Studio\\ToDoList\\ToDoListAPI\\ToDoListAPI\\UseCase\\DataBaseInterfaces\\IStatusRepository.cs",
-              "RelativeToolTip": "ToDoListAPI\\UseCase\\DataBaseInterfaces\\IStatusRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAiAAAAAAAAAA==",
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\Usuarios\\felip\\Documents\\projetos\\ToDoListProjeto\\ToDoListAPI\\ToDoListAPI\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "ToDoListAPI\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\Usuarios\\felip\\Documents\\projetos\\ToDoListProjeto\\ToDoListAPI\\ToDoListAPI\\Controllers\\UserController.cs",
+              "RelativeToolTip": "ToDoListAPI\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-15T16:55:51.891Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-15T20:17:29.236Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "StatusRepository.cs",
-              "DocumentMoniker": "D:\\Felipe\\Estudos\\Projetos Visual Studio\\ToDoList\\ToDoListAPI\\ToDoListAPI\\DataBase\\StatusRepository.cs",
-              "RelativeDocumentMoniker": "ToDoListAPI\\DataBase\\StatusRepository.cs",
-              "ToolTip": "D:\\Felipe\\Estudos\\Projetos Visual Studio\\ToDoList\\ToDoListAPI\\ToDoListAPI\\DataBase\\StatusRepository.cs",
-              "RelativeToolTip": "ToDoListAPI\\DataBase\\StatusRepository.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAwwC8AAAAAAAAAAAAAAA==",
+              "Title": "StatusController.cs",
+              "DocumentMoniker": "D:\\Usuarios\\felip\\Documents\\projetos\\ToDoListProjeto\\ToDoListAPI\\ToDoListAPI\\Controllers\\StatusController.cs",
+              "RelativeDocumentMoniker": "ToDoListAPI\\Controllers\\StatusController.cs",
+              "ToolTip": "D:\\Usuarios\\felip\\Documents\\projetos\\ToDoListProjeto\\ToDoListAPI\\ToDoListAPI\\Controllers\\StatusController.cs",
+              "RelativeToolTip": "ToDoListAPI\\Controllers\\StatusController.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-15T16:25:40.583Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-15T20:17:09.811Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "D:\\Felipe\\Estudos\\Projetos Visual Studio\\ToDoList\\ToDoListAPI\\ToDoListAPI\\DataBase\\UserRepository.cs",
-              "RelativeDocumentMoniker": "ToDoListAPI\\DataBase\\UserRepository.cs",
-              "ToolTip": "D:\\Felipe\\Estudos\\Projetos Visual Studio\\ToDoList\\ToDoListAPI\\ToDoListAPI\\DataBase\\UserRepository.cs",
-              "RelativeToolTip": "ToDoListAPI\\DataBase\\UserRepository.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAA9wDcAAAAJAAAAAAAAAA==",
+              "Title": "StatusRepository.cs",
+              "DocumentMoniker": "D:\\Usuarios\\felip\\Documents\\projetos\\ToDoListProjeto\\ToDoListAPI\\ToDoListAPI\\DataBase\\StatusRepository.cs",
+              "RelativeDocumentMoniker": "ToDoListAPI\\DataBase\\StatusRepository.cs",
+              "ToolTip": "D:\\Usuarios\\felip\\Documents\\projetos\\ToDoListProjeto\\ToDoListAPI\\ToDoListAPI\\DataBase\\StatusRepository.cs",
+              "RelativeToolTip": "ToDoListAPI\\DataBase\\StatusRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-15T16:25:15.595Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-15T20:05:36.021Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "D:\\Usuarios\\felip\\Documents\\projetos\\ToDoListProjeto\\ToDoListAPI\\ToDoListAPI\\DataBase\\UserRepository.cs",
+              "RelativeDocumentMoniker": "ToDoListAPI\\DataBase\\UserRepository.cs",
+              "ToolTip": "D:\\Usuarios\\felip\\Documents\\projetos\\ToDoListProjeto\\ToDoListAPI\\ToDoListAPI\\DataBase\\UserRepository.cs",
+              "RelativeToolTip": "ToDoListAPI\\DataBase\\UserRepository.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAmwFkAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T20:05:35.171Z"
             }
           ]
         }
