@@ -1,7 +1,7 @@
 ﻿using ToDoListAPI.Domain.Interfaces.Comoon;
-using ToDoListAPI.Entities;
+using ToDoListAPI.Domain.Entities;
 
-namespace ToDoListAPI.Domain.DataBaseInterfaces
+namespace ToDoListAPI.Domain.Interfaces
 {
     public interface IStatusRepository : IBaseRepository<Status>
     {

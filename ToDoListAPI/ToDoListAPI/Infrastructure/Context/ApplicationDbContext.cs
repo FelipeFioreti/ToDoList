@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ToDoListAPI.Entities;
+using ToDoListAPI.Domain.Entities;
 
 namespace ToDoListAPI.Infrastructure.Context
 {

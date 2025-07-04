@@ -1,6 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ToDoListAPI.Domain.DataBaseInterfaces;
-using ToDoListAPI.Entities;
+﻿using ToDoListAPI.Domain.Entities;
+using ToDoListAPI.Domain.Interfaces;
 using ToDoListAPI.Infrastructure.Context;
 using ToDoListAPI.Infrastructure.Repositories.Comoom;
 

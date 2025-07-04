@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using ToDoListAPI.Domain.DataBaseInterfaces;
-using ToDoListAPI.Entities;
+﻿using ToDoListAPI.Domain.Interfaces;
+using ToDoListAPI.Domain.Entities;
 
-namespace ToDoListAPI.Application.UseCases
+namespace ToDoListAPI.Application.Services
 {
     public class UserService : IUserRepository
     {
@@ -30,7 +29,7 @@ namespace ToDoListAPI.Application.UseCases
             await _userRepository.AddAsync(user);
         }
 
-        public async Task DeleteAsync(User user)
+        public async Task Delete(User user)
         {
             if (user == null)
             {
@@ -44,7 +43,7 @@ namespace ToDoListAPI.Application.UseCases
                 throw new KeyNotFoundException($"Usuário não existe.");
             }
 
-            await _userRepository.DeleteAsync(user);
+            await _userRepository.Delete(user);
         }
 
         public async Task<IEnumerable<User>> GetAllAsync()
@@ -68,6 +67,8 @@ namespace ToDoListAPI.Application.UseCases
             {
                 throw new ArgumentException("É necessário preencher os atributos do usuário.", nameof(user));
             }
+
+            var existingUser = await _userRepository.GetByIdAsync(user.UserId) ?? throw new KeyNotFoundException("Usuário Não encontrado.")  ;
 
             await _userRepository.UpdateAsync(user);
         }

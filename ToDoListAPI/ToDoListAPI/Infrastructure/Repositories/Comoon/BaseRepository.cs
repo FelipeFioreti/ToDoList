@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ToDoListAPI.Domain.Interfaces.Comoon;
-using ToDoListAPI.Entities;
 using ToDoListAPI.Infrastructure.Context;
 
 namespace ToDoListAPI.Infrastructure.Repositories.Comoom
@@ -16,15 +15,15 @@ namespace ToDoListAPI.Infrastructure.Repositories.Comoom
             _context = context;
         }
 
-        public virtual async Task AddAsync(TEntity user)
+        public virtual async Task AddAsync(TEntity entity)
         {
-            await _dbSet.AddAsync(user);
+            await _dbSet.AddAsync(entity);
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(TEntity user)
+        public async Task Delete(TEntity entity)
         {
-            _dbSet.Remove(user);
+            _dbSet.Remove(entity);
             await _context.SaveChangesAsync();
         }
 
@@ -38,9 +37,9 @@ namespace ToDoListAPI.Infrastructure.Repositories.Comoom
             return await _dbSet.FindAsync(id);
         }
 
-        public async Task UpdateAsync(TEntity user)
+        public async Task UpdateAsync(TEntity entity)
         {
-            _dbSet.Update(user);
+            _dbSet.Update(entity);
             await _context.SaveChangesAsync();
         }
     }

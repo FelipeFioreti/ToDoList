@@ -1,8 +1,13 @@
-﻿namespace ToDoListAPI.Entities
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ToDoListAPI.Domain.Entities
 {
+    [Table("status")]
     public class Status
     {
+        [Column("id")]
         public int StatusId { get; set; }
-        public string StatusName { get; set; } = string.Empty;
+        [Column("name")]
+        public string Name { get; set; } = string.Empty;
     }
 }

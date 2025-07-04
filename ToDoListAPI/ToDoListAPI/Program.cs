@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ToDoListAPI;
-using ToDoListAPI.Application.UseCases;
-using ToDoListAPI.Domain.DataBaseInterfaces;
+using ToDoListAPI.Application.Services;
+using ToDoListAPI.Domain.Interfaces;
 using ToDoListAPI.Infrastructure.Context;
 using ToDoListAPI.Infrastructure.Repositories;
 
@@ -13,7 +13,14 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Register services
+builder.Services.AddScoped<TaskService>();
+builder.Services.AddScoped<StatusService>();
 builder.Services.AddScoped<UserService>();
+
+// Register repositories
+builder.Services.AddScoped<IStatusRepository, StatusRepository>();
+builder.Services.AddScoped<ITaskModelRepository, TaskModelRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
