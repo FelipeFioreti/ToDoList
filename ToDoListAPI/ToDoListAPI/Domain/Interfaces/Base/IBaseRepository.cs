@@ -1,5 +1,5 @@
 ﻿
-namespace ToDoListAPI.Domain.Interfaces.Comoon
+namespace ToDoListAPI.Domain.Interfaces.Base
 {
     public interface IBaseRepository<TEntity> where TEntity : class
     {

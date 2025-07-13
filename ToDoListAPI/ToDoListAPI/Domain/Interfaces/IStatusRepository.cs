@@ -1,4 +1,4 @@
-﻿using ToDoListAPI.Domain.Interfaces.Comoon;
+﻿using ToDoListAPI.Domain.Interfaces.Base;
 using ToDoListAPI.Domain.Entities;
 
 namespace ToDoListAPI.Domain.Interfaces

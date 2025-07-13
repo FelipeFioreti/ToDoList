@@ -1,4 +1,7 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using ToDoListAPI;
 using ToDoListAPI.Application.Services;
 using ToDoListAPI.Domain.Interfaces;
@@ -22,6 +25,20 @@ builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<IStatusRepository, StatusRepository>();
 builder.Services.AddScoped<ITaskModelRepository, TaskModelRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+// Configure JWT authentication
+var key = Encoding.UTF8.GetBytes(builder.Configuration["JwtSettings:Key"]!);
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+{
+    options.SaveToken = true;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = false,
+        ValidateAudience = false,   
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(key)
+    };
+});
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

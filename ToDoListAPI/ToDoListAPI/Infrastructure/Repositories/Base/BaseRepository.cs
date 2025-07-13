@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ToDoListAPI.Domain.Interfaces.Comoon;
+using ToDoListAPI.Domain.Interfaces.Base;
 using ToDoListAPI.Infrastructure.Context;
 
-namespace ToDoListAPI.Infrastructure.Repositories.Comoom
+namespace ToDoListAPI.Infrastructure.Repositories.Base
 {
     public abstract class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
     {

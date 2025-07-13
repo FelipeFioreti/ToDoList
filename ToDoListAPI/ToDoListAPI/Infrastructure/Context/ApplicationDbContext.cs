@@ -11,6 +11,7 @@ namespace ToDoListAPI.Infrastructure.Context
         public DbSet<User> Users { get; set; }
         public DbSet<TaskModel> Tasks { get; set; }
         public DbSet<Status> Status { get; set; }
+        public DbSet<Token> Tokens { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>()
