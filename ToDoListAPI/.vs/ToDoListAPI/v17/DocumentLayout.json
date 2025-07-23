@@ -38,8 +38,7 @@
               "RelativeToolTip": "ToDoListAPI\\Domain\\Entities\\Base\\BaseEntity.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAxwBEAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T13:40:17.645Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-23T13:40:17.645Z"
             },
             {
               "$type": "Document",
@@ -51,8 +50,7 @@
               "RelativeToolTip": "ToDoListAPI\\Domain\\Entities\\Status.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T13:37:21.491Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-23T13:37:21.491Z"
             },
             {
               "$type": "Document",
@@ -77,8 +75,7 @@
               "RelativeToolTip": "ToDoListAPI\\API\\TaskController.cs",
               "ViewState": "AgIAACMAAAAAAAAAAAAwwEQAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T13:35:22.324Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-23T13:35:22.324Z"
             }
           ]
         }
