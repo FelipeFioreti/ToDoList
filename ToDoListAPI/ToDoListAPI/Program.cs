@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using ToDoListAPI;
 using ToDoListAPI.Application.Services;
+using ToDoListAPI.Application.Utils;
 using ToDoListAPI.Domain.Interfaces;
 using ToDoListAPI.Infrastructure.Context;
 using ToDoListAPI.Infrastructure.Repositories;
@@ -20,11 +21,16 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<TaskService>();
 builder.Services.AddScoped<StatusService>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<TokenService>();
+
+// Register utils
+builder.Services.AddScoped<JwtUtils>();
 
 // Register repositories
 builder.Services.AddScoped<IStatusRepository, StatusRepository>();
 builder.Services.AddScoped<ITaskModelRepository, TaskModelRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IJwtTokenRepository, TokenRepository>();
 
 // Configure JWT authentication
 var key = Encoding.UTF8.GetBytes(builder.Configuration["JwtSettings:Key"]!);

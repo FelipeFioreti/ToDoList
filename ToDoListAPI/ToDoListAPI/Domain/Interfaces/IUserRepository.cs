@@ -5,5 +5,5 @@ namespace ToDoListAPI.Domain.Interfaces;
 
 public interface IUserRepository : IBaseRepository<User>
 {
-
+    public Task<User?> GetByEmailAssync(string email);
 }

@@ -1,7 +1,8 @@
-using ToDoListAPI.Infrastructure.Repositories.Base;
-using ToDoListAPI.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 using ToDoListAPI.Domain.Entities;
 using ToDoListAPI.Domain.Interfaces;
+using ToDoListAPI.Infrastructure.Context;
+using ToDoListAPI.Infrastructure.Repositories.Base;
 
 namespace ToDoListAPI.Infrastructure.Repositories
 {
@@ -10,7 +11,7 @@ namespace ToDoListAPI.Infrastructure.Repositories
         private readonly ApplicationDbContext context;
         public TaskModelRepository(ApplicationDbContext applicationDbContext) : base(applicationDbContext)
         {
-            context = applicationDbContext;
+            this.context = applicationDbContext;
         }
     }
 }

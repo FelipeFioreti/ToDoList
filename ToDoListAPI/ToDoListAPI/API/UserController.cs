@@ -10,19 +10,20 @@ namespace ToDoListAPI.API
     public class UserController : ControllerBase
     {
         private readonly UserService _userService;
-        public UserController(UserService userService)
+        private readonly TokenService _tokenService;
+        public UserController(UserService userService, TokenService tokenService)
         {
             _userService = userService;
+            _tokenService = tokenService;
         }
 
-        [HttpGet("Get")]
+        [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var users = await _userService.GetAllAsync();
-            return Ok(users);
-        }
+            return Ok(await _userService.GetAllAsync());
+        }   
 
-        [HttpGet("Get/{id}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var user = await _userService.GetByIdAsync(id);
@@ -35,25 +36,15 @@ namespace ToDoListAPI.API
             return Ok(user);
         }
 
-        [HttpPost("Create")]
+        [HttpPost]
         public async Task<IActionResult> Create([FromBody] User user)
         {
-            if (user == null)
-            {
-                return BadRequest("Usuário não pode ser nulo.");
-            }
-
-            if (string.IsNullOrEmpty(user.Name) || string.IsNullOrEmpty(user.Email) || string.IsNullOrEmpty(user.Password))
-            {
-                return BadRequest("É necessário preencher os atributos do usuário.");
-            }
-
             await _userService.AddAsync(user);
 
             return Ok(user);
         }
 
-        [HttpDelete("Delete/{id}")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             var user = await _userService.GetByIdAsync(id);
@@ -67,22 +58,33 @@ namespace ToDoListAPI.API
             return Ok($"Usuário deletado com sucesso.");
         }
 
-        [HttpPut("Update")]
+        [HttpPut]
         public async Task<IActionResult> Update([FromBody] User user)
         {
-            if (user == null)
-            {
-                return BadRequest("Usuário não pode ser nulo.");
-            }
-            var existingUser = await _userService.GetByIdAsync(user.UserId);
+            var existingUser = await _userService.UpdateAsync(user);
+            return Ok(existingUser);
+        }
 
-            if (existingUser == null)
-            {
-                return NotFound($"Usuário não encontrado.");
-            }
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login([FromBody] User loginData)
+        {
 
-            await _userService.UpdateAsync(user);
-            return Ok(user);
+            var token = await _userService.Login(loginData);
+
+            if (token != null)
+                return Ok(token);
+
+            return BadRequest("Erro ao logar o usuário.");
+            
+        }
+
+        [HttpPost("Logout")]
+        public async Task<IActionResult> Logout()
+        {
+            var token = await _tokenService.AuthenticateToken(_tokenService.GetTokenToString(HttpContext.Request.Headers.Authorization.ToString()));
+            await _tokenService.Delete(token!.UserId);
+
+            return Ok("Usuário deslogado com sucesso.");
         }
     }
 }

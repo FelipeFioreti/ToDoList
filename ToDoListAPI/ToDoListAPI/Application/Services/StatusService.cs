@@ -1,7 +1,7 @@
 ﻿using ToDoListAPI.Domain.Entities;
 using ToDoListAPI.Domain.Interfaces;
 using ToDoListAPI.Infrastructure.Repositories;
-using ToDoListAPI.Infrastructure.Repositories.Comoom;
+using ToDoListAPI.Infrastructure.Repositories.Base;
 
 namespace ToDoListAPI.Application.Services
 {
@@ -14,36 +14,21 @@ namespace ToDoListAPI.Application.Services
                 _statusRepository = statusRepository;
         }
 
-        public async Task AddAsync(Status status)
+        public async Task<Status> AddAsync(Status status)
         {
             if(status == null)
             {
                 throw new ArgumentNullException(nameof(status), "Status não pode ser nulo.");
             }
 
-            if(string.IsNullOrWhiteSpace(status.Name))
-            {
-                throw new ArgumentException("Nome do Status não pode ser nulo.", nameof(status.Name));
-            }
-
-            await _statusRepository.AddAsync(status);
+            return await _statusRepository.AddAsync(status);
         }
 
         public async Task Delete(Status status)
         {
-            if(status == null)
-            {
-                throw new ArgumentNullException(nameof(status), "Status não pode ser nulo.");
-            }
+            var statusToDelete = await _statusRepository.GetByIdAsync(status.Id) ?? throw new KeyNotFoundException($"Status não existe."); ;
 
-            var response = await _statusRepository.GetByIdAsync(status.StatusId);
-
-            if (response == null)
-            {
-                throw new KeyNotFoundException($"Status não existe.");
-            }
-
-            await _statusRepository.Delete(status);
+            await _statusRepository.Delete(statusToDelete);
         }
 
         public async Task<IEnumerable<Status>> GetAllAsync()
@@ -51,27 +36,18 @@ namespace ToDoListAPI.Application.Services
             return await _statusRepository.GetAllAsync();
         }
 
-        public async Task<Status> GetByIdAsync(int id)
+        public async Task<Status?> GetByIdAsync(int id)
         {
             return await _statusRepository.GetByIdAsync(id);
         }
 
-        public async Task UpdateAsync(Status status)
+        public async Task<Status> UpdateAsync(Status status)
         {
-            if(status == null)
-            {
-                throw new ArgumentNullException(nameof(status), "Status não pode ser nulo.");
-            }
+            var statusToUpdate = await _statusRepository.GetByIdAsync(status.Id) ?? throw new KeyNotFoundException($"Status não encontrado.");
 
-            if(string.IsNullOrWhiteSpace(status.Name))
-            {
-                throw new ArgumentException("Nome do Status não pode ser nulo.", nameof(status.Name));
-            }
+            statusToUpdate.Update(status.Name);
 
-            var existingStatus = await _statusRepository.GetByIdAsync(status.StatusId) ?? throw new KeyNotFoundException($"Status não encontrado.");
-
-            await _statusRepository.UpdateAsync(status);
-
+            return await _statusRepository.UpdateAsync(statusToUpdate);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace ToDoListAPI.Application.Utils
         public JwtUtils(IConfiguration configuration)
         {
             _configuration = configuration;
-            _secretKey = configuration.GetSection("JwtSettings").Value!.ToString();
+            _secretKey = _configuration.GetSection("JwtSettings:Key").Value!.ToString();
         }
 
         public Token GenerateToken(int id)

@@ -1,13 +1,20 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using ToDoListAPI.Domain.Entities.Base;
 
 namespace ToDoListAPI.Domain.Entities
 {
-    [Table("status")]
-    public class Status
+    public class Status : BaseEntity
     {
-        [Column("id")]
-        public int StatusId { get; set; }
-        [Column("name")]
+        [StringLength(100, ErrorMessage = "O Nome deve ter no máximo 100 caracteres."), Required(ErrorMessage = "O nome do status é obrigatório.")]
         public string Name { get; set; } = string.Empty;
-    }
+    
+
+        public void Update(string name)
+        {
+            base.Update();
+            this.Name = name;
+        }
+
+    } 
 }

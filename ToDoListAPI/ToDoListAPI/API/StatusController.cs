@@ -17,8 +17,7 @@ namespace ToDoListAPI.API
         [HttpGet("Get")]
         public async Task<IActionResult> Get()
         {
-            var tasks = await _service.GetAllAsync();
-            return Ok(tasks);
+            return Ok(await _service.GetAllAsync());
         }
 
         [HttpGet("Get/{id}")]
@@ -37,16 +36,6 @@ namespace ToDoListAPI.API
         [HttpPost("Create")]
         public async Task<IActionResult> Create([FromBody] Status status)
         {
-            if (status == null)
-            {
-                return BadRequest("Status não pode ser nulo.");
-            }
-
-            if (string.IsNullOrEmpty(status.Name))
-            {
-                return BadRequest("É necessário preencher o nome do status.");
-            }
-
             await _service.AddAsync(status);
             return Ok(status);
         }
@@ -68,19 +57,13 @@ namespace ToDoListAPI.API
         [HttpPut("Update")]
         public async Task<IActionResult> Update([FromBody] Status status)
         {
-            if (status == null)
+            var response = await _service.UpdateAsync(status);
+
+            if(response == null)
             {
-                return BadRequest("Status não pode ser nulo.");
+                return BadRequest($"Erro ao atualizar dados.");
             }
 
-            var existingStatus = await _service.GetByIdAsync(status.StatusId);
-
-            if (existingStatus == null)
-            {
-                return NotFound($"Status não encontrado.");
-            }
-
-            await _service.UpdateAsync(status);
             return Ok(status);
         }
     }

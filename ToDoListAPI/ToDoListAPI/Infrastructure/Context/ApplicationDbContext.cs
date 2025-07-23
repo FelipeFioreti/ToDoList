@@ -15,13 +15,16 @@ namespace ToDoListAPI.Infrastructure.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>()
-                .HasKey(u => u.UserId);
+                .HasKey(u => u.Id);
 
             modelBuilder.Entity<TaskModel>()
-                .HasKey(u => u.TaskId);
+                .HasKey(u => u.Id);
 
             modelBuilder.Entity<Status>()
-                .HasKey(u => u.StatusId);
+                .HasKey(u => u.Id);
+
+            modelBuilder.Entity<Token>()
+                .HasKey(u => u.Id);
         }
     }
 

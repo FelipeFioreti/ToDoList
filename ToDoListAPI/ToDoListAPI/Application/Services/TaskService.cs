@@ -12,7 +12,7 @@ namespace ToDoListAPI.Application.Services
             _taskModelRepository = taskModelRepository;
         }
 
-        public async Task AddAsync(TaskModel task)
+        public async Task<TaskModel> AddAsync(TaskModel task)
         {
             if (task == null)
             {
@@ -24,9 +24,9 @@ namespace ToDoListAPI.Application.Services
                 throw new ArgumentException("É necessário preencher os atributos da tarefa.", nameof(task));
             }
 
-            task.CreatedAt = DateTime.UtcNow;
+            task.Update(task.Title, task.Content);
 
-            await _taskModelRepository.AddAsync(task);
+            return await _taskModelRepository.AddAsync(task);
 
         }
 
@@ -37,7 +37,7 @@ namespace ToDoListAPI.Application.Services
                 throw new ArgumentNullException(nameof(task), "Tarefa não pode ser nula.");
             }
 
-            var response = _taskModelRepository.GetByIdAsync(task.TaskId);
+            var response = _taskModelRepository.GetByIdAsync(task.Id);
 
             if (response == null)
             {
@@ -53,26 +53,39 @@ namespace ToDoListAPI.Application.Services
             return await _taskModelRepository.GetAllAsync();
         }
 
-        public async Task<TaskModel> GetByIdAsync(int id)
+        public async Task<TaskModel?> GetByIdAsync(int id)
         {
             return await _taskModelRepository.GetByIdAsync(id);
         }
 
-        public async Task UpdateAsync(TaskModel task)
+        public async Task<TaskModel> UpdateAsync(TaskModel task)
         {
             if (task == null)
             {
                 throw new ArgumentNullException(nameof(task), "Tarefa não pode ser nula.");
             }
 
-            var response = _taskModelRepository.GetByIdAsync(task.TaskId);
-
-            if (response == null)
-            {
+            var taskToUpdate = await _taskModelRepository.GetByIdAsync(task.Id) ?? 
                 throw new KeyNotFoundException($"Tarefa não existe.");
+
+            taskToUpdate.Update(task.Title, task.Content);
+
+            return await _taskModelRepository.UpdateAsync(taskToUpdate);
+        }
+
+        public async Task<TaskModel> UpdateStatusAsync(TaskModel task)
+        {
+            if (task == null)
+            {
+                throw new ArgumentNullException(nameof(task), "Tarefa não pode ser nula.");
             }
 
-            await _taskModelRepository.UpdateAsync(task);
+            var taskToUpdate = await _taskModelRepository.GetByIdAsync(task.Id) ??
+                throw new KeyNotFoundException($"Tarefa não existe.");
+
+            taskToUpdate.UpdateStatus(task.StatusId);
+
+            return await _taskModelRepository.UpdateAsync(taskToUpdate);
         }
     }
 }
