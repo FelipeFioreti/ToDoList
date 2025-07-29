@@ -12,7 +12,7 @@ Uma aplicação ToDo List, onde usuários podem criar, editar, listar e atualiza
 
 ## 🧠 Modelo Conceitual
 
-![Modelo Conceitual](docs/Image/conceitual_model_ToDoList.png)
+![Modelo Conceitual](docs/Image/conceitual-model-ToDoList.png)
 
   > O projeto segue uma estrutura relacional com três entidades principais: `Users`, `Tasks` e `Status`.
 
@@ -27,6 +27,7 @@ Uma aplicação ToDo List, onde usuários podem criar, editar, listar e atualiza
 - 🏗️ Arquitetura: Estou aprendendo os conceitos SOLID, então busquei implementá-los na aplicação
 
 ## 📂 Estrutura do Projeto
+
 ```
 ToDoListAPI/
 ├── 📁 API/
