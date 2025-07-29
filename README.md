@@ -26,9 +26,8 @@ Uma aplicação ToDo List, onde usuários podem criar, editar, listar e atualiza
 - 🌐 Comunicação: A comunicação entre a aplicação utiliza API através de requisições HTTP 
 - 🏗️ Arquitetura: Estou aprendendo os conceitos SOLID, então busquei implementá-los na aplicação
 
-```
 ## 📂 Estrutura do Projeto
-
+```
 ToDoListAPI/
 ├── 📁 API/
 │   ├── StatusController.cs
