@@ -19,7 +19,7 @@ namespace ToDoListAPI.Domain.Entities
             base.Update();
             this.Name = name;
             this.Email = email;
-            this.Password = password;
+            UpdatePassword(password);
         }
 
         public void UpdatePassword(string newPassword)

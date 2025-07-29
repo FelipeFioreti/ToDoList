@@ -26,7 +26,7 @@ namespace ToDoListAPI.Application.Services
                 throw new ArgumentException("É necessário preencher os atributos do usuário.", nameof(user));
             }
 
-            user.Update();
+            user.UpdatePassword(user.Password);
 
             return await _userRepository.AddAsync(user);
         }
@@ -47,7 +47,7 @@ namespace ToDoListAPI.Application.Services
             return await _userRepository.GetAllAsync();
         }
 
-        public async Task<User> GetByIdAsync(int id)
+        public async Task<User?> GetByIdAsync(int id)
         {
             return await _userRepository.GetByIdAsync(id);
         }
@@ -66,13 +66,12 @@ namespace ToDoListAPI.Application.Services
 
             var userToUpdate = await _userRepository.GetByIdAsync(user.Id) ?? throw new KeyNotFoundException("Usuário Não encontrado.");
 
-            userToUpdate.UpdatePassword(user.Password);
-            userToUpdate.Update(userToUpdate.Name, user.Email, user.Password);
+            userToUpdate.Update(user.Name, user.Email, user.Password);
 
             return await _userRepository.UpdateAsync(userToUpdate);
         }
 
-        public async Task<Token?> Login(User loginData)
+        public async Task<String?> Login(User loginData)
         {
             var user = await GetByEmailAssync(loginData.Email) ?? throw new Exception("Email inválido.");
 

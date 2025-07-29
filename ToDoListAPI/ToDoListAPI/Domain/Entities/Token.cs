@@ -12,9 +12,13 @@ namespace ToDoListAPI.Domain.Entities
         [Required(ErrorMessage = "Por favor insira o valor do Token")]
         public string Value { get; set; } = string.Empty;
 
-        public Token(int id, string value)
+        public Token()
         {
-            UserId = id;
+                
+        }
+        public Token(int userId, string value)
+        {
+            UserId = userId;
             Value = value;
         }
     }

@@ -17,7 +17,7 @@ namespace ToDoListAPI.Application.Utils
             _secretKey = _configuration.GetSection("JwtSettings:Key").Value!.ToString();
         }
 
-        public Token GenerateToken(int id)
+        public Token GenerateToken(int userId)
         {
             var key = Encoding.ASCII.GetBytes(_secretKey);
             
@@ -25,7 +25,7 @@ namespace ToDoListAPI.Application.Utils
             {
                 Subject = new ClaimsIdentity(
                     [
-                        new Claim("id", id.ToString())
+                        new Claim("id", userId.ToString())
                     ]),
 
                 Expires = DateTime.UtcNow.AddHours(1),
@@ -37,7 +37,7 @@ namespace ToDoListAPI.Application.Utils
             var token = tokenHandler.CreateToken(tokenDescriptor);
             string tokenString = tokenHandler.WriteToken(token);
 
-            return new Token(id, tokenString);
+            return new Token(userId, tokenString);
         }
 
         public bool ValidateToken(string token)

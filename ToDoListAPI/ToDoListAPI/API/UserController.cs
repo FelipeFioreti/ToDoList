@@ -69,10 +69,12 @@ namespace ToDoListAPI.API
         public async Task<IActionResult> Login([FromBody] User loginData)
         {
 
-            var token = await _userService.Login(loginData);
+            var tokenValue = await _userService.Login(loginData);
 
-            if (token != null)
-                return Ok(token);
+            if (tokenValue != null)
+            {
+                return Ok(tokenValue);
+            }    
 
             return BadRequest("Erro ao logar o usuário.");
             
@@ -81,7 +83,7 @@ namespace ToDoListAPI.API
         [HttpPost("Logout")]
         public async Task<IActionResult> Logout()
         {
-            var token = await _tokenService.AuthenticateToken(_tokenService.GetTokenToString(HttpContext.Request.Headers.Authorization.ToString()));
+            var token = await _tokenService.AuthenticateToken(_tokenService.GetTokenToString(HttpContext.Request.Headers["Authorization"].ToString()));
             await _tokenService.Delete(token!.UserId);
 
             return Ok("Usuário deslogado com sucesso.");

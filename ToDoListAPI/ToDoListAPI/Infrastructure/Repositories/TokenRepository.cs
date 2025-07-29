@@ -11,24 +11,24 @@ namespace ToDoListAPI.Infrastructure.Repositories
 
         public async Task Create(Token token)
         {
-            await _context.Tokens.AddAsync(token);
+            await _context.Set<Token>().AddAsync(token);
             await _context.SaveChangesAsync();
         }
 
         public async Task Delete(Token token)
         {
-            _context.Tokens.Remove(token);
+            _context.Set<Token>().Remove(token);
             await _context.SaveChangesAsync();
         }
 
         public async Task<Token?> GetToken(string value)
         {
-            return await _context.Tokens.SingleOrDefaultAsync(t => t.Value == value);
+            return await _context.Set<Token>().SingleOrDefaultAsync(t => t.Value == value);
         }
 
-        public async Task<Token?> GetTokenByUserId(int Id)
+        public async Task<Token?> GetTokenByUserId(int id)
         {
-            return await _context.Tokens.SingleOrDefaultAsync(t => t.UserId == Id);
+            return await _context.Set<Token>().FirstOrDefaultAsync(t => t.UserId == id);
         }
     }
 }

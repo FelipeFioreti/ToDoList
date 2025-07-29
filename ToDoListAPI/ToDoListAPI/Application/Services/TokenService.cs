@@ -26,7 +26,7 @@ namespace ToDoListAPI.Application.Services
             throw new Exception("Token inválido ou expirado");
         }
 
-        public async Task<Token?> Create(int userId)
+        public async Task<String?> Create(int userId)
         {
             var token = await _repository.GetTokenByUserId(userId);
 
@@ -34,7 +34,7 @@ namespace ToDoListAPI.Application.Services
             {
                 if (_token.ValidateToken(token.Value))
                 {
-                    return token;
+                    return token.Value;
                 }
 
                 await _repository.Delete(token);
@@ -43,7 +43,7 @@ namespace ToDoListAPI.Application.Services
             token = _token.GenerateToken(userId); 
             await _repository.Create(token);
 
-            return token;
+            return token.Value;
         }
 
         public async Task Delete(int userId)
