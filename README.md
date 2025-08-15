@@ -79,3 +79,6 @@ ToDoListAPI/
         └── UserRepository.cs
 
 ```
+
+## Créditos
+Código foi baseado no trabalho de [Daniel Zanni e Bento Junior](https://github.com/Dan1elz/nextflow-erp), sob licença MIT.
